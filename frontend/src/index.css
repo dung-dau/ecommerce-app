@@ -17,10 +17,19 @@ main {
   flex: 1;
 }
 
+.btn-primary {
+  background-color: var(--btn-background-color);
+  color: var(--btn-text-color);
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.rating span {
+  color: var(--star-color);
 }
 
 .product {
