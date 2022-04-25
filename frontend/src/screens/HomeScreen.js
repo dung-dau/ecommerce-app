@@ -4,6 +4,8 @@ import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from '../components/Product';
+// used to change the title that is displayed on the tab
+import { Helmet } from 'react-helmet-async';
 
 const reducer = (state, action) => {
   switch(action.type) {
@@ -38,6 +40,14 @@ function HomeScreen() {
   }, [])
   return (
     <div>
+        {/* 
+          Use the react-helmet-async library by wrapping the desired
+          title in Helmet tags
+        */}
+        <Helmet>
+          {/* to set the title, the title must be wrapped in the title tags */}
+          <title>Ecommerce Store</title>
+        </Helmet>
         <h1>Featured Products</h1>
         <div className="products">
           {loading ? (
