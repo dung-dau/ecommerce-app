@@ -9,19 +9,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-header {
-  background-color: var(--header-background-color);
-  padding: 1rem;
-}
-
-header a {
-  color: var(--header-text-color);
-  font-weight: bold;
-  text-decoration: none;
+.site-container {
+  min-height: 100vh;
 }
 
 main {
-  padding: 1rem;
+  flex: 1;
 }
 
 .products {
