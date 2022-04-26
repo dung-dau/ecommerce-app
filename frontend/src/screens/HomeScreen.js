@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Product from '../components/Product';
 // used to change the title that is displayed on the tab
 import { Helmet } from 'react-helmet-async';
+import MessageBox from '../components/MessageBox';
 
 const reducer = (state, action) => {
   switch(action.type) {
@@ -53,7 +54,7 @@ function HomeScreen() {
           {loading ? (
             <div>Loading...</div>
           ) : error ? (
-            <div>{error}</div>
+            <MessageBox variant="danger">{error}</MessageBox>
           ) : (
           <Row>
             {products.map((product) => (
