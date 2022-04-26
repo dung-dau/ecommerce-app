@@ -1,6 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.gitignore
 # dependencies
+.env
 .vscode
 ../.vscode/
 ./frontend/node_modules
