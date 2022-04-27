@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+// defines the schema for product
 const productSchema = new mongoose.Schema(
     {
         name: {type: String, required: true, unique: true},
@@ -18,6 +19,7 @@ const productSchema = new mongoose.Schema(
     }
 );
 
+// creates a collection named Product with productSchema
 const Product = mongoose.model('Product', productSchema);
 
 export default Product;
