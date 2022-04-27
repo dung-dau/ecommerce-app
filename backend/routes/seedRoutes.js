@@ -1,5 +1,6 @@
 import express from 'express';
 import Product from '../models/productModel.js';
+import User from '../models/userModel.js';
 import data from '../data.js';
 
 //all routes begin with /api/seed/
@@ -16,8 +17,12 @@ seedRouter.get('/', async(req, res) => {
     await Product.remove({});
     // creates a Product collection
     const createdProducts = await Product.insertMany(data.products);
+    // Remove all documents in the User collection
+    await User.remove({});
+    // creates a User collection
+    const createdUsers = await User.insertMany(data.users);
     // sends the HTTP response
-    res.send({createdProducts});
+    res.send({createdProducts, createdUsers});
 })
 
 export default seedRouter;
