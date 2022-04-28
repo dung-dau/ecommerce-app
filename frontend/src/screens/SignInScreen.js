@@ -67,7 +67,7 @@ export default function SignInScreen() {
           <Button type="submit">Sign In</Button>
         </div>
         <div className="mb-3">
-          NewCustomer?{' '}
+          New Customer?{' '}
           <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
         </div>
       </Form>

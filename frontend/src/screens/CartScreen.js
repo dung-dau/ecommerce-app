@@ -22,11 +22,11 @@ export default function CartScreen() {
         const { data } = await axios.get(`/api/products/${item._id}`);
         if(data.countInStock < quantity) {
             window.alert('Sorry, this product is out of stock');
-          }
-          cxtDispatch({
+            }
+            cxtDispatch({
             type:'CART_ADD_ITEM',
             payload:{...item, quantity}
-          });
+            });
     }
 
     const removeItemHandler = (item) => {

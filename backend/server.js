@@ -31,12 +31,12 @@ app.use('/api/seed/', seedRouter);
 // adds the middleware from ./routes/productRoutes.js
 //  and setting /api/products as the first part of the
 // route
-app.use('/api/products', productRouter);
+app.use('/api/products/', productRouter);
 
 // adds the middleware from ./routes/userRoutes.js
 //  and setting /api/users as the first part of the
 // route
-app.use('/api/users', userRouter);
+app.use('/api/users/', userRouter);
 
 // a middleware that handles errors
 app.use((err, req, res, next) => {
