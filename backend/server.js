@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import seedRouter from './routes/seedRoutes.js';
 import productRouter from './routes/productRoutes.js';
 import userRouter from './routes/userRoutes.js';
+import orderRouter from './routes/orderRoutes.js';
 
 // connects node with mongodb
 dotenv.config();
@@ -37,6 +38,11 @@ app.use('/api/products/', productRouter);
 //  and setting /api/users as the first part of the
 // route
 app.use('/api/users/', userRouter);
+
+// adds the middleware from ./routes/orderRoutes.js
+//  and setting /api/orders as the first part of the
+// route
+app.use('/api/orders/', orderRouter);
 
 // a middleware that handles errors
 app.use((err, req, res, next) => {
