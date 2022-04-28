@@ -52,14 +52,14 @@ export default function SignInScreen() {
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control type="email" 
-                        require
+                        required
                         onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" 
-                        require
+                        required
                         onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>

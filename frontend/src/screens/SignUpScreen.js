@@ -58,28 +58,28 @@ export default function SignUpScreen() {
       <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>Name</Form.Label>
-          <Form.Control require
+          <Form.Control required
                         onChange={(e) => setName(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control type="email" 
-                        require
+                        required
                         onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" 
-                        require
+                        required
                         onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control type="password" 
-                        require
+                        required
                         onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </Form.Group>
