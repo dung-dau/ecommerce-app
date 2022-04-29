@@ -63,7 +63,7 @@ function PlaceOrderScreen() {
           totalPrice: cart.totalPrice,
         },
         {
-          header: {
+          headers: {
             authorization: `Bearer ${userInfo.token}`,
           },
         }
@@ -76,7 +76,6 @@ function PlaceOrderScreen() {
       dispatch({type: 'CREATE_FAIL'});
       toast.error(getError(err));
     }
-
   }
 
   useEffect(() => {
