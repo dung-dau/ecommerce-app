@@ -30,7 +30,7 @@ productRouter.get('/slug/:slug/', async (req, res) => {
 
 // the :id param would be accessed with req.params.id
 productRouter.get('/:id/', async (req, res) => {
-  const product = await Product.findById((x) => x._id === req.params.id)
+  const product = await Product.findById(req.params.id)
   if(product) {
     res.send(product);
   } else {
