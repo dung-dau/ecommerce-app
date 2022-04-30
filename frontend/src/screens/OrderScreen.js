@@ -23,6 +23,13 @@ function reducer(state, action) {
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     case 'PAY_REQUEST':
+      return {...state, loadingPay: true};
+    case 'PAY_SUCCESS':
+      return {...state, loadingPay: false, successPay: true}
+    case 'PAY_FAIL':
+      return {...state, loadingPay: false};
+    case 'PAY_RESET':
+      return {...state, loadingPay: false, successPay: false}
     default:
       return state;
   }
@@ -49,7 +56,7 @@ export default function OrderScreen() {
     return actions.order.create({
       purchase_units: [
         {
-          amont: {value: order.totalPrice}
+          amount: {value: order.totalPrice}
         },
       ],
     }).then((orderID) => {
@@ -118,7 +125,7 @@ export default function OrderScreen() {
       };
       loadPayPalScript();
     }
-  }, [order, userInfo, orderId, navigate, paypalDispatch]);
+  }, [order, userInfo, orderId, navigate, paypalDispatch, successPay]);
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
