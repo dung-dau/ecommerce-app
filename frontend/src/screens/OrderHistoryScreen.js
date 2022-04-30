@@ -1,18 +1,15 @@
-import axios from 'axios';
-import React from 'react';
-import { useEffect } from 'react';
-import { useReducer } from 'react';
-import { useContext } from 'react';
-import Button from 'react-bootstrap/Button';
+import React, { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { getError } from '../utils';
+import Button from 'react-bootstrap/esm/Button';
 
 const reducer = (state, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'FETCH_REQUEST':
       return {...state, loading: true};
     case 'FETCH_SUCCESS':
@@ -22,12 +19,13 @@ const reducer = (state, action) => {
     default:
       return state;
   }
-}
+};
 
-function OrderHistory() {
+function OrderHistoryScreen() {
   const {state} = useContext(Store);
   const {userInfo} = state;
   const navigate = useNavigate();
+
   const [{loading, error, orders}, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
@@ -37,19 +35,19 @@ function OrderHistory() {
       dispatch({type: 'FETCH_REQUEST'});
       try {
         const {data} = await axios.get(
-          `api/orders/mine`,
-          {header: {Authorization: `Bearer ${userInfo.token}`}}
-        )
+          `/api/orders/mine`,
+          {headers: {Authorization: `Bearer ${userInfo.token}`}}
+        );
         dispatch({type: 'FETCH_SUCCESS', payload: data});
       } catch(error) {
         dispatch({
           type: 'FETCH_FAIL',
           payload: getError(error),
-        })
+        });
       }
-    }
+    };
     fetchData();
-  }, [userInfo])
+  }, [userInfo]);
   return (
     <div>
       <Helmet>
@@ -77,9 +75,9 @@ function OrderHistory() {
             {orders.map((order) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
-                <td>{order.createdAt.subString(0,10)}</td>
+                <td>{order.createdAt.substring(0, 10)}</td>
                 <td>{order.totalPrice.toFixed(2)}</td>
-                <td>{order.isPaid ? order.paidAt.substring(0,10) : 'No'}</td>
+                <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
                 <td>
                   {order.isDelivered
                     ? order.deliveredAt.substring(0, 10)
@@ -95,16 +93,14 @@ function OrderHistory() {
                   >
                     Details
                   </Button>
-
                 </td>
               </tr>
             ))}
-
           </tbody>
         </table>
       )}
     </div>
-  )
+  );
 }
 
-export default OrderHistory
+export default OrderHistoryScreen;
