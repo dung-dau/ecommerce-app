@@ -18,7 +18,7 @@ export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
   if(authorization) {
     // authorization format: Bearer XXXXXX
-    // so slice gets rid of the bearer part
+    // so slice gets rid of the Bearer part
     const token = authorization.slice(7, authorization.length);
     jwt.verify(
       token,

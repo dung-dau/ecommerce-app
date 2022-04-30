@@ -38,6 +38,23 @@ function ProductScreen() {
     error: '',
   })
 
+  // fetches data in the form:
+  // {
+  //   "_id": "",
+  //   "name": "",
+  //   "slug": "",
+  //   "image": "",
+  //   "brand": "",
+  //   "category": "",
+  //   "description": "",
+  //   "price": num,
+  //   "countInStock": num,
+  //   "rating": num,
+  //   "numReviews": num,
+  //   "__v": 0,
+  //   "createdAt": "2022-04-28T21:48:09.826Z",
+  //   "updatedAt": "2022-04-28T21:48:09.826Z"
+  // }
   useEffect(() => {
     const fetchData = async () => {
       dispatch({type: 'FETCH_REQUEST'});

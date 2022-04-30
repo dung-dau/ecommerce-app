@@ -7,6 +7,7 @@ import Product from '../components/Product';
 // used to change the title that is displayed on the tab
 import { Helmet } from 'react-helmet-async';
 import MessageBox from '../components/MessageBox';
+import LoadingBox from '../components/LoadingBox';
 
 const reducer = (state, action) => {
   switch(action.type) {
@@ -51,11 +52,13 @@ function HomeScreen() {
         </Helmet>
         <h1>Featured Products</h1>
         <div className="products">
+          {/* occurs during loading and errors */}
           {loading ? (
-            <div>Loading...</div>
+            <LoadingBox />
           ) : error ? (
             <MessageBox variant="danger">{error}</MessageBox>
           ) : (
+          // Loads the featured products
           <Row>
             {products.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">

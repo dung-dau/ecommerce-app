@@ -9,10 +9,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* the outermost div */
 .site-container {
   min-height: 100vh;
 }
 
+/* contains a bootstrap container which contains
+   the routes
+ */
 main {
   flex: 1;
 }
@@ -32,6 +36,7 @@ main {
   color: var(--star-color);
 }
 
+/* styling for the product div inside the product component */
 .product {
   border: 1px solid var(--header-background-color);
   margin: 1rem;
